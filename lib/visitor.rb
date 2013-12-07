@@ -1,5 +1,5 @@
 class Visitor
-  attr_accessor :index, :in_time, :out_time
+  attr_accessor :index
 
   def initialize(index)
     @index = index
@@ -8,7 +8,15 @@ class Visitor
   end
 
   def time_spent 
-    out_time - in_time 
+    @out_time - @in_time 
+  end
+
+  def set_timings(activity, timestemp)
+    if activity == 'I'
+      @in_time = timestemp.to_i
+    else  
+      @out_time = timestemp.to_i
+    end
   end
 
 end
